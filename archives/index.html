@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Thomas Gandou — Desarollador Python</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="top">
+  <nav>
+    <div class="brand">THOMAS<span>.</span>GANDOU</div>
+    <div class="navlinks">
+      <a href="#about">Sobre mí</a>
+      <a href="#skills">Competencias</a>
+      <a href="#experience">Experiencias</a>
+      <a href="#education">Formacion</a>
+      <a href="#languages">Idiomas</a>
+      <a href="#interests">Intereses</a>
+      <a href="#contact">Contacto</a>
+    </div>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow opacity-in d1">$ whoami</div>
+    <h1 class="name opacity-in d2">Thomas<br>Gandou</h1>
+    <p class="role opacity-in d3">Desarollador Python — Backend &amp; API</p>
+    <div class="hero-meta opacity-in d4">
+      <div>5 ans d'expérience</div>
+      <div></div>
+      <div>Disponible</div>
+    </div>
+  </div>
+</section>
+
+<main class="wrap">
+
+  <section id="about" class="about">
+    <div class="section-head"><span class="index">01</span><h2>Sobre mí</h2></div>
+    <p>Ingeniero de sistemas conviertiendose en desarrollador Python.</p>
+  </section>
+
+  <section id="skills">
+    <div class="section-head"><span class="index">02</span><h2>Competencias técnicas</h2></div>
+    <div class="code-panel">
+      <div class="code-titlebar"><span class="dot"></span>skills.py</div>
+      <pre><code><span class="ln">1</span><span class="tok-kw">skills</span> <span class="tok-punct">=</span> {
+<span class="ln">2</span>    <span class="tok-str">"langages"</span><span class="tok-punct">:</span>   [<span class="tok-str">"Python"</span>, <span class="tok-str">"SQL"</span>, <span class="tok-str">"JavaScript"</span>, <span class="tok-str">"Bash"</span>, <span class="tok-str">"HTML/CSS"</span>],
+<span class="ln">3</span>    <span class="tok-str">"frameworks"</span><span class="tok-punct">:</span> [<span class="tok-str">"FastAPI"</span>]
+<span class="ln">4</span>    <span class="tok-str">"data"</span><span class="tok-punct">:</span>       [<span class="tok-str">"MySQL"</span>],
+<span class="ln">5</span>    <span class="tok-str">"infra"</span><span class="tok-punct">:</span>      [<span class="tok-str">"Docker"</span>, <span class="tok-str">"Git"</span>, <span class="tok-str">"CI/CD"</span>, <span class="tok-str">"Linux"</span>],
+<span class="ln">6</span>}
+<span class="ln">7</span> 
+<span class="ln">8</span><span class="tok-com"># niveau: opérationnel sur l'ensemble de la stack</span></code></pre>
+    </div>
+  </section>
+
+  <section id="soft-skills">
+    <div class="section-head"><span class="index">03</span><h2>Savoir-être</h2></div>
+    <div class="skills-grid">
+
+      <div class="trait-card trait-curious">
+        <h3>Curiosité &amp; ouverture</h3>
+        <p>Veille technique régulière, exploration de nouvelles stacks, apprentissage en continu hors des sentiers battus.</p>
+      </div>
+
+      <div class="trait-card trait-empathy">
+        <div class="empathy-content">
+          <h3>Empathie &amp; écoute</h3>
+          <p>À l'écoute des équipes et des utilisateurs, mentorat de profils juniors, retours toujours constructifs.</p>
+        </div>
+        <div class="empathy-mirror" aria-hidden="true">
+          <h3>Empathie &amp; écoute</h3>
+          <p>À l'écoute des équipes et des utilisateurs, mentorat de profils juniors.</p>
+        </div>
+      </div>
+
+      <div class="trait-card">
+        <h3>Rigueur</h3>
+        <p>Code revu, testé, documenté. Peu de surprises en production.</p>
+      </div>
+
+      <div class="trait-card">
+        <h3>Autonomie</h3>
+        <p>Prend un sujet flou et le transforme en livrable concret.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="section-head"><span class="index">04</span><h2>Expériences</h2></div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-period">2016 — 2019</div>
+        <div class="tl-role">Ingénieure Systèmes Industriels</div>
+        <div class="tl-org">Manufacthena</div>
+        <p class="tl-desc">Supervision de lignes de production automatisées. Intégration de systèmes SCADA. Maintenance prédictive.</p>
+      </div>
+    </div>
+
+    <div class="pivot">
+      <div class="seg-a"></div>
+      <div class="seg-b"></div>
+      <div class="seg-c"></div>
+      <div class="pivot-tag">
+        <span class="diff-minus">ingénierie systèmes industriels</span>
+        <span class="diff-plus">développement</span>
+      </div>
+    </div>
+
+    <div class="timeline dev">
+      <div class="tl-item">
+        <div class="tl-period">2019 — 2020</div>
+        <div class="tl-role">Développeuse — Stage</div>
+        <div class="tl-org">StartLab</div>
+        <p class="tl-desc">Prototypage d'outils internes en Python/Flask pour l'équipe produit.</p>
+      </div>
+      <div class="tl-item alt">
+        <div class="tl-period">2020 — 2022</div>
+        <div class="tl-role">Développeuse Backend</div>
+        <div class="tl-org">DataFlow</div>
+        <p class="tl-desc">Modules ETL en Python. Migration Django 2 → 4. Réduction du temps de traitement de 30%.</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-period">2022 — présent</div>
+        <div class="tl-role">Développeuse Python</div>
+        <div class="tl-org">TechNova</div>
+        <p class="tl-desc">API REST avec FastAPI. Optimisation de requêtes SQL. Mise en place du pipeline CI/CD.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="section-head"><span class="index">05</span><h2>Formation</h2></div>
+    <div class="edu-list">
+      <div class="edu-item">
+        <div>
+          <div class="edu-title">Master Informatique</div>
+          <div class="edu-school">Université Lyon 1</div>
+        </div>
+        <div class="edu-period">2018 — 2020</div>
+      </div>
+      <div class="edu-item">
+        <div>
+          <div class="edu-title">Licence Informatique</div>
+          <div class="edu-school">Université Lyon 1</div>
+        </div>
+        <div class="edu-period">2015 — 2018</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="languages">
+    <div class="section-head"><span class="index">06</span><h2>Langues</h2></div>
+    <div class="lang-list">
+      <div class="lang-item">
+        <div><span class="lang-name">Français</span><span class="lang-label">langue maternelle</span></div>
+        <div class="lang-level"><span class="filled"></span><span class="filled"></span><span class="filled"></span><span class="filled"></span><span class="filled"></span></div>
+      </div>
+      <div class="lang-item alt">
+        <div><span class="lang-name">Anglais</span><span class="lang-label">courant — C1</span></div>
+        <div class="lang-level"><span class="filled"></span><span class="filled"></span><span class="filled"></span><span class="filled"></span><span></span></div>
+      </div>
+      <div class="lang-item">
+        <div><span class="lang-name">Espagnol</span><span class="lang-label">intermédiaire — B1</span></div>
+        <div class="lang-level"><span class="filled"></span><span class="filled"></span><span></span><span></span><span></span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="interests">
+    <div class="section-head"><span class="index">07</span><h2>Centres d'intérêt</h2></div>
+    <div class="staff-wrap">
+      <svg class="staff-svg" viewBox="0 0 620 72" preserveAspectRatio="xMinYMid meet" role="img" aria-label="Musique — guitare et piano, passion depuis l'enfance">
+        <line class="staff-line" x1="0" y1="12" x2="620" y2="12"/>
+        <line class="staff-line" x1="0" y1="22" x2="620" y2="22"/>
+        <line class="staff-line" x1="0" y1="32" x2="620" y2="32"/>
+        <line class="staff-line" x1="0" y1="42" x2="620" y2="42"/>
+        <line class="staff-line" x1="0" y1="52" x2="620" y2="52"/>
+        <line class="staff-bar" x1="0" y1="10" x2="0" y2="54"/>
+        <text class="staff-clef" x="6" y="58" font-size="56">𝄞</text>
+        <line class="staff-bar" x1="58" y1="8" x2="58" y2="56"/>
+        <text class="staff-label" x="76" y="37">Musique — guitare &amp; piano, passion depuis l'enfance</text>
+        <line class="staff-bar" x1="596" y1="8" x2="596" y2="56"/>
+        <line class="staff-bar" x1="606" y1="8" x2="606" y2="56" stroke-width="3"/>
+      </svg>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="section-head"><span class="index">08</span><h2>Contact</h2></div>
+    <p style="color:#c7c7cc; max-width:480px;">Disponible pour un poste de développeuse Python. Réponse rapide garantie.</p>
+    <div class="contact-links">
+      <a href="mailto:nora.vidal@example.com">nora.vidal@example.com</a>
+      <a href="https://github.com/example" target="_blank" rel="noopener">github.com/example</a>
+      <a href="https://linkedin.com/in/example" target="_blank" rel="noopener">linkedin.com/in/example</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>© 2026 Nora Vidal — construit en HTML/CSS/JS</footer>
+
+</body>
+</html>

@@ -1,0 +1,2054 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Francis Yopi — Python Developer</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap');
+
+    :root {
+      --background: #0d0f10;
+      --surface: #111416;
+
+      --text: #e7e5df;
+      --muted: #73777c;
+      --faint: #34383c;
+      --line: #24282b;
+
+      --accent: #d9a441;
+
+      --content-width: 1380px;
+    }
+
+    /* =========================================
+       RESET
+    ========================================= */
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+
+      background: var(--background);
+      color: var(--text);
+
+      font-family: "Manrope", sans-serif;
+
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* =========================================
+       HERO
+    ========================================= */
+
+    .hero {
+      position: relative;
+
+      min-height: 100svh;
+
+      padding: 28px 42px;
+
+      display: flex;
+      flex-direction: column;
+
+      overflow: hidden;
+
+      isolation: isolate;
+    }
+
+    /* =========================================
+       BACKGROUND GRID
+    ========================================= */
+
+    .grid {
+      position: absolute;
+      inset: 0;
+
+      pointer-events: none;
+
+      z-index: -2;
+
+      background-image:
+        linear-gradient(
+          to right,
+          rgba(255, 255, 255, 0.022) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0.022) 1px,
+          transparent 1px
+        );
+
+      background-size: 120px 120px;
+
+      mask-image: linear-gradient(
+        to bottom,
+        transparent 0%,
+        black 12%,
+        black 88%,
+        transparent 100%
+      );
+    }
+
+    /* =========================================
+       HEADER
+    ========================================= */
+
+    .header {
+      width: 100%;
+      max-width: var(--content-width);
+      margin: 0 auto;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      font-family: "DM Mono", monospace;
+      font-size: 11px;
+
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .identity-mark {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+
+      color: var(--text);
+    }
+
+    .mark {
+      font-family: "Manrope", sans-serif;
+      font-weight: 700;
+      font-size: 16px;
+
+      letter-spacing: -0.08em;
+    }
+
+    .header-divider {
+      width: 1px;
+      height: 22px;
+
+      background: var(--line);
+    }
+
+    .header-label {
+      color: var(--muted);
+    }
+
+    .section {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      color: var(--muted);
+    }
+
+    .section-number {
+      color: var(--text);
+    }
+
+    /* =========================================
+       MAIN
+    ========================================= */
+
+    .hero-main {
+      position: relative;
+
+      width: 100%;
+      max-width: var(--content-width);
+
+      flex: 1;
+
+      margin: 0 auto;
+
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+
+      align-items: center;
+
+      gap: clamp(70px, 10vw, 180px);
+    }
+
+    /* =========================================
+       LEFT SIDE
+    ========================================= */
+
+    .intro {
+      position: relative;
+
+      max-width: 700px;
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+
+      margin-bottom: 25px;
+
+      color: var(--muted);
+
+      font-family: "DM Mono", monospace;
+      font-size: 11px;
+
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow-line {
+      width: 34px;
+      height: 1px;
+
+      background: var(--accent);
+    }
+
+    .name {
+      margin: 0;
+
+      font-size: clamp(4rem, 8vw, 8rem);
+
+      font-weight: 600;
+      line-height: 0.88;
+
+      letter-spacing: -0.075em;
+    }
+
+    .name-last {
+      display: block;
+
+      color: transparent;
+
+      -webkit-text-stroke: 1px rgba(231, 229, 223, 0.7);
+    }
+
+    .description {
+      max-width: 420px;
+
+      margin-top: 42px;
+      padding-left: 18px;
+
+      border-left: 1px solid var(--line);
+
+      color: var(--muted);
+
+      font-family: "DM Mono", monospace;
+      font-size: 13px;
+
+      line-height: 1.8;
+    }
+
+    .description strong {
+      color: var(--text);
+      font-weight: 400;
+    }
+
+    /* =========================================
+       FOCUS
+    ========================================= */
+
+    .focus {
+      display: flex;
+      flex-wrap: wrap;
+
+      gap: 7px 18px;
+
+      margin-top: 35px;
+
+      color: var(--muted);
+
+      font-family: "DM Mono", monospace;
+      font-size: 10px;
+
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+    }
+
+    .focus span:not(:last-child)::after {
+      content: "·";
+
+      margin-left: 18px;
+
+      color: var(--faint);
+    }
+
+    /* =========================================
+       RIGHT SIDE
+    ========================================= */
+
+    .technical {
+      position: relative;
+
+      width: 100%;
+      max-width: 500px;
+    }
+
+    .technical-label {
+      margin-bottom: 18px;
+
+      color: var(--muted);
+
+      font-family: "DM Mono", monospace;
+      font-size: 10px;
+
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    /* =========================================
+       CODE
+    ========================================= */
+
+    .code {
+      position: relative;
+
+      border-left: 1px solid var(--line);
+
+      padding: 20px 0 20px 24px;
+
+      font-family: "DM Mono", monospace;
+      font-size: 12px;
+
+      line-height: 2;
+
+      color: var(--muted);
+    }
+
+    .code::before {
+      content: "";
+
+      position: absolute;
+
+      left: -1px;
+      top: 20px;
+
+      width: 1px;
+      height: 34px;
+
+      background: var(--accent);
+    }
+
+    .code-line {
+      display: grid;
+
+      grid-template-columns: 28px 1fr;
+    }
+
+    .line-number {
+      color: #3e4347;
+
+      user-select: none;
+    }
+
+    .keyword {
+      color: var(--accent);
+    }
+
+    .function {
+      color: var(--text);
+    }
+
+    .string {
+      color: #aaa59a;
+    }
+
+    .comment {
+      color: #4e5358;
+    }
+
+    /* =========================================
+       TRAITS
+    ========================================= */
+
+    .traits {
+      margin-top: 55px;
+
+      display: flex;
+      flex-direction: column;
+
+      gap: 18px;
+    }
+
+    .trait {
+      position: relative;
+
+      display: grid;
+      grid-template-columns: 100px 1fr;
+
+      align-items: center;
+
+      gap: 20px;
+
+      color: var(--muted);
+
+      font-family: "DM Mono", monospace;
+      font-size: 10px;
+
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .trait-name {
+      color: var(--muted);
+    }
+
+    .trait-line {
+      position: relative;
+
+      height: 20px;
+    }
+
+    .trait-line svg {
+      position: absolute;
+
+      inset: 0;
+
+      width: 100%;
+      height: 100%;
+
+      overflow: visible;
+    }
+
+    .trait-line path {
+      fill: none;
+
+      stroke: var(--faint);
+
+      stroke-width: 1;
+    }
+
+    .trait-line .accent-line {
+      stroke: var(--accent);
+
+      stroke-dasharray: 100;
+      stroke-dashoffset: 100;
+
+      transition:
+        stroke-dashoffset 1s ease,
+        opacity 0.5s ease;
+    }
+
+    .trait:hover .accent-line {
+      stroke-dashoffset: 0;
+    }
+
+    /* Curiosity */
+
+    .trait.curiosity path {
+      d: path(
+        "M0 10 L40 10 C70 10 75 3 110 3 C150 3 145 17 185 17 C220 17 225 10 260 10"
+      );
+    }
+
+    /* Adaptation */
+
+    .trait.adaptation path {
+      d: path(
+        "M0 10 L65 10 L90 3 L155 3 L180 16 L260 16"
+      );
+    }
+
+    /* Collaboration */
+
+    .trait.collaboration path {
+      d: path(
+        "M0 10 L100 10 M100 10 L140 3 M100 10 L140 17 M140 3 L260 3"
+      );
+    }
+
+    /* =========================================
+       BOTTOM
+    ========================================= */
+
+    .footer {
+      width: 100%;
+      max-width: var(--content-width);
+
+      margin: 0 auto;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      font-family: "DM Mono", monospace;
+      font-size: 10px;
+
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+
+      color: var(--muted);
+    }
+
+    .scroll {
+      display: flex;
+      align-items: center;
+
+      gap: 12px;
+
+      color: var(--text);
+    }
+
+    .scroll-arrow {
+      display: inline-flex;
+
+      width: 22px;
+      height: 22px;
+
+      align-items: center;
+      justify-content: center;
+
+      border: 1px solid var(--line);
+
+      font-size: 11px;
+
+      animation: scrollPulse 2.5s ease-in-out infinite;
+    }
+
+    @keyframes scrollPulse {
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(4px);
+      }
+    }
+
+    .footer-year {
+      color: var(--faint);
+    }
+
+    /* =========================================
+       SUBTLE CURIOUS LINE
+    ========================================= */
+
+    .escape-line {
+      position: absolute;
+
+      left: 0;
+      right: 0;
+
+      bottom: 13%;
+
+      height: 100px;
+
+      pointer-events: none;
+
+      z-index: -1;
+
+      opacity: 0.55;
+    }
+
+    .escape-line svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .escape-line path {
+      fill: none;
+
+      stroke: var(--line);
+
+      stroke-width: 1;
+
+      stroke-dasharray: 4 8;
+    }
+
+    .escape-line path:last-child {
+      stroke: var(--accent);
+
+      opacity: 0.35;
+
+      stroke-dasharray: 1 12;
+
+      animation: dashMove 14s linear infinite;
+    }
+
+    @keyframes dashMove {
+      to {
+        stroke-dashoffset: -200;
+      }
+    }
+
+    /* =========================================
+       RESPONSIVE
+    ========================================= */
+
+    @media (max-width: 900px) {
+
+      .hero {
+        padding: 24px;
+      }
+
+      .hero-main {
+        grid-template-columns: 1fr;
+
+        gap: 60px;
+
+        padding: 80px 0;
+      }
+
+      .technical {
+        max-width: 600px;
+      }
+
+      .traits {
+        margin-top: 40px;
+      }
+
+      .escape-line {
+        bottom: 20%;
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      .hero {
+        padding: 20px;
+      }
+
+      .header {
+        font-size: 9px;
+      }
+
+      .header-label {
+        display: none;
+      }
+
+      .hero-main {
+        padding: 70px 0 60px;
+      }
+
+      .name {
+        font-size: clamp(3.5rem, 17vw, 6rem);
+      }
+
+      .description {
+        margin-top: 30px;
+
+        font-size: 11px;
+      }
+
+      .focus {
+        font-size: 9px;
+      }
+
+      .technical {
+        margin-top: 10px;
+      }
+
+      .code {
+        font-size: 10px;
+      }
+
+      .trait {
+        grid-template-columns: 80px 1fr;
+
+        gap: 12px;
+      }
+
+      .footer {
+        font-size: 8px;
+      }
+
+      .footer-year {
+        display: none;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <section class="hero">
+
+    <!-- Background -->
+    <div class="grid"></div>
+
+
+    <!-- ======================================
+         HEADER
+    ======================================= -->
+
+    <header class="header">
+
+      <div class="identity-mark">
+
+        <span class="mark">
+          FY
+        </span>
+
+        <span class="header-divider"></span>
+
+        <span class="header-label">
+          Portfolio / Francis Yopi
+        </span>
+
+      </div>
+
+      <div class="section">
+
+        <span class="section-number">
+          01
+        </span>
+
+        <span>/</span>
+
+        <span>
+          Profile
+        </span>
+
+      </div>
+
+    </header>
+
+
+    <!-- ======================================
+         MAIN
+    ======================================= -->
+
+    <main class="hero-main">
+
+
+      <!-- ====================================
+           INTRODUCTION
+      ===================================== -->
+
+      <div class="intro">
+
+        <div class="eyebrow">
+
+          <span class="eyebrow-line"></span>
+
+          Python Developer
+
+        </div>
+
+
+        <h1 class="name">
+
+          <span>Francis</span>
+
+          <span class="name-last">
+            Yopi
+          </span>
+
+        </h1>
+
+
+        <div class="description">
+
+          <strong>Développeur Python orienté solutions.</strong><br>
+
+          Concevoir des outils utiles,
+          résoudre des problèmes,
+          apprendre en continu.
+
+        </div>
+
+
+        <div class="focus">
+
+          <span>Python</span>
+          <span>Backend</span>
+          <span>Automation</span>
+
+        </div>
+
+      </div>
+
+
+      <!-- ====================================
+           TECHNICAL SIDE
+      ===================================== -->
+
+      <div class="technical">
+
+        <div class="technical-label">
+          developer.py
+        </div>
+
+
+        <!-- CODE -->
+
+        <div class="code">
+
+          <div class="code-line">
+
+            <span class="line-number">01</span>
+
+            <span>
+              <span class="keyword">def</span>
+              <span class="function">solve</span>(problem):
+            </span>
+
+          </div>
+
+
+          <div class="code-line">
+
+            <span class="line-number">02</span>
+
+            <span>
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              <span class="function">understand</span>(problem)
+            </span>
+
+          </div>
+
+
+          <div class="code-line">
+
+            <span class="line-number">03</span>
+
+            <span>
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              <span class="function">build_solution</span>()
+            </span>
+
+          </div>
+
+
+          <div class="code-line">
+
+            <span class="line-number">04</span>
+
+            <span>
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              <span class="function">iterate</span>()
+            </span>
+
+          </div>
+
+
+          <div class="code-line">
+
+            <span class="line-number">05</span>
+
+            <span>
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              <span class="comment"># keep improving</span>
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <!-- =================================
+             PROFESSIONAL TRAITS
+        ================================== -->
+
+        <div class="traits">
+
+
+          <div class="trait">
+
+            <span class="trait-name">
+              Precision
+            </span>
+
+            <div class="trait-line">
+
+              <svg
+                viewBox="0 0 260 20"
+                preserveAspectRatio="none"
+              >
+
+                <path
+                  d="M0 10 L260 10"
+                />
+
+                <path
+                  class="accent-line"
+                  d="M0 10 L260 10"
+                />
+
+              </svg>
+
+            </div>
+
+          </div>
+
+
+          <div class="trait curiosity">
+
+            <span class="trait-name">
+              Curiosity
+            </span>
+
+            <div class="trait-line">
+
+              <svg
+                viewBox="0 0 260 20"
+                preserveAspectRatio="none"
+              >
+
+                <path
+                  d="M0 10 L40 10 C70 10 75 3 110 3 C150 3 145 17 185 17 C220 17 225 10 260 10"
+                />
+
+                <path
+                  class="accent-line"
+                  d="M0 10 L40 10 C70 10 75 3 110 3 C150 3 145 17 185 17 C220 17 225 10 260 10"
+                />
+
+              </svg>
+
+            </div>
+
+          </div>
+
+
+          <div class="trait adaptation">
+
+            <span class="trait-name">
+              Adaptation
+            </span>
+
+            <div class="trait-line">
+
+              <svg
+                viewBox="0 0 260 20"
+                preserveAspectRatio="none"
+              >
+
+                <path
+                  d="M0 10 L65 10 L90 3 L155 3 L180 16 L260 16"
+                />
+
+                <path
+                  class="accent-line"
+                  d="M0 10 L65 10 L90 3 L155 3 L180 16 L260 16"
+                />
+
+              </svg>
+
+            </div>
+
+          </div>
+
+
+          <div class="trait collaboration">
+
+            <span class="trait-name">
+              Collaboration
+            </span>
+
+            <div class="trait-line">
+
+              <svg
+                viewBox="0 0 260 20"
+                preserveAspectRatio="none"
+              >
+
+                <path
+                  d="M0 10 L100 10 M100 10 L140 3 M100 10 L140 17 M140 3 L260 3"
+                />
+
+                <path
+                  class="accent-line"
+                  d="M0 10 L100 10 M100 10 L140 3 M100 10 L140 17 M140 3 L260 3"
+                />
+
+              </svg>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </main>
+
+
+    <!-- ======================================
+         SUBTLE ESCAPE LINE
+    ======================================= -->
+
+    <div class="escape-line">
+
+      <svg
+        viewBox="0 0 1400 100"
+        preserveAspectRatio="none"
+        aria-hidden="true"
+      >
+
+        <path
+          d="
+            M0 50
+            L650 50
+            C720 50 720 20 790 20
+            C850 20 860 75 930 75
+            C1010 75 1010 40 1080 40
+            C1170 40 1200 55 1400 55
+          "
+        />
+
+        <path
+          d="
+            M0 50
+            L650 50
+            C720 50 720 20 790 20
+            C850 20 860 75 930 75
+            C1010 75 1010 40 1080 40
+            C1170 40 1200 55 1400 55
+          "
+        />
+
+      </svg>
+
+    </div>
+
+
+    <!-- ======================================
+         FOOTER
+    ======================================= -->
+
+    <footer class="footer">
+
+      <div class="scroll">
+
+        <span class="scroll-arrow">
+          ↓
+        </span>
+
+        <span>
+          Explore
+        </span>
+
+      </div>
+
+      <div class="footer-year">
+        2026
+      </div>
+
+    </footer>
+
+  </section>
+<section class="stack-section" id="stack">
+
+  <div class="stack-grid"></div>
+
+  <div class="stack-inner">
+
+    <!-- HEADER -->
+
+    <header class="section-header">
+
+      <div class="section-id">
+        <span>02</span> / STACK
+      </div>
+
+      <div class="section-line"></div>
+
+      <div class="section-label">
+        Technical capabilities
+      </div>
+
+    </header>
+
+
+    <!-- MAIN -->
+
+    <div class="stack-main">
+
+      <!-- INTRO -->
+
+      <div class="stack-intro">
+
+        <p class="stack-kicker">
+          WHAT I WORK WITH
+        </p>
+
+        <h2>
+          Tools for
+          <span>building.</span>
+        </h2>
+
+        <p class="stack-description">
+          Une sélection des technologies que j'utilise
+          pour concevoir, automatiser et résoudre des
+          problèmes concrets.
+        </p>
+
+      </div>
+
+
+      <!-- SKILLS -->
+
+      <div class="skills">
+
+
+        <!-- LANGUAGES -->
+
+        <div class="skill-group">
+
+          <div class="group-header">
+            <span>01</span>
+            <span>Languages</span>
+          </div>
+
+
+          <button
+            class="skill"
+            data-code="python"
+          >
+            <span class="skill-number">01</span>
+            <span class="skill-name">Python</span>
+            <span class="skill-arrow">↗</span>
+          </button>
+
+
+          <button
+            class="skill"
+            data-code="sql"
+          >
+            <span class="skill-number">02</span>
+            <span class="skill-name">SQL</span>
+            <span class="skill-arrow">↗</span>
+          </button>
+
+
+          <button
+            class="skill"
+            data-code="javascript"
+          >
+            <span class="skill-number">03</span>
+            <span class="skill-name">JavaScript</span>
+            <span class="skill-arrow">↗</span>
+          </button>
+
+        </div>
+
+
+        <!-- BACKEND -->
+
+        <div class="skill-group">
+
+          <div class="group-header">
+            <span>02</span>
+            <span>Backend</span>
+          </div>
+
+
+          <button
+            class="skill"
+            data-code="django"
+          >
+            <span class="skill-number">01</span>
+            <span class="skill-name">Django</span>
+            <span class="skill-arrow">↗</span>
+          </button>
+
+
+          <button
+            class="skill"
+            data-code="fastapi"
+          >
+            <span class="skill-number">02</span>
+            <span class="skill-name">FastAPI</span>
+            <span class="skill-arrow">↗</span>
+          </button>
+
+
+          <button
+            class="skill"
+            data-code="api"
+          >
+            <span class="skill-number">03</span>
+            <span class="skill-name">REST API</span>
+            <span class="skill-arrow">↗</span>
+          </button>
+
+        </div>
+
+
+        <!-- TOOLS -->
+
+        <div class="skill-group">
+
+          <div class="group-header">
+            <span>03</span>
+            <span>Tools</span>
+          </div>
+
+
+          <button
+            class="skill"
+            data-code="git"
+          >
+            <span class="skill-number">01</span>
+            <span class="skill-name">Git</span>
+            <span class="skill-arrow">↗</span>
+          </button>
+
+
+          <button
+            class="skill"
+            data-code="docker"
+          >
+            <span class="skill-number">02</span>
+            <span class="skill-name">Docker</span>
+            <span class="skill-arrow">↗</span>
+          </button>
+
+
+          <button
+            class="skill"
+            data-code="linux"
+          >
+            <span class="skill-number">03</span>
+            <span class="skill-name">Linux</span>
+            <span class="skill-arrow">↗</span>
+          </button>
+
+        </div>
+
+
+        <!-- DATA -->
+
+        <div class="skill-group">
+
+          <div class="group-header">
+            <span>04</span>
+            <span>Data</span>
+          </div>
+
+
+          <button
+            class="skill"
+            data-code="postgresql"
+          >
+            <span class="skill-number">01</span>
+            <span class="skill-name">PostgreSQL</span>
+            <span class="skill-arrow">↗</span>
+          </button>
+
+
+          <button
+            class="skill"
+            data-code="pandas"
+          >
+            <span class="skill-number">02</span>
+            <span class="skill-name">Pandas</span>
+            <span class="skill-arrow">↗</span>
+          </button>
+
+
+          <button
+            class="skill"
+            data-code="etl"
+          >
+            <span class="skill-number">03</span>
+            <span class="skill-name">ETL</span>
+            <span class="skill-arrow">↗</span>
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- CODE PANEL -->
+
+    <div class="code-panel">
+
+      <div class="code-header">
+
+        <span id="code-file">
+          developer.py
+        </span>
+
+        <span>
+          interactive
+        </span>
+
+      </div>
+
+
+      <pre id="code-content"><code><span class="code-keyword">def</span> <span class="code-function">build</span>(problem):
+    understand(problem)
+    design_solution()
+    iterate()
+
+    <span class="code-comment"># keep it simple</span></code></pre>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<style>
+
+  /* =========================================
+     STACK SECTION
+  ========================================= */
+
+  .stack-section {
+
+    --stack-bg: #0d0f10;
+    --stack-text: #e7e5df;
+    --stack-muted: #73777c;
+    --stack-faint: #34383c;
+    --stack-line: #24282b;
+    --stack-accent: #d9a441;
+
+    position: relative;
+
+    min-height: 100vh;
+
+    padding: 120px 42px;
+
+    background: var(--stack-bg);
+
+    overflow: hidden;
+
+    font-family: "Manrope", sans-serif;
+
+  }
+
+
+  /* =========================================
+     GRID
+  ========================================= */
+
+  .stack-grid {
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background-image:
+      linear-gradient(
+        to right,
+        rgba(255,255,255,.018) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        to bottom,
+        rgba(255,255,255,.018) 1px,
+        transparent 1px
+      );
+
+    background-size: 120px 120px;
+
+    mask-image:
+      linear-gradient(
+        to bottom,
+        transparent,
+        black 15%,
+        black 85%,
+        transparent
+      );
+
+  }
+
+
+  /* =========================================
+     INNER
+  ========================================= */
+
+  .stack-inner {
+
+    position: relative;
+
+    width: 100%;
+
+    max-width: 1380px;
+
+    margin: auto;
+
+  }
+
+
+  /* =========================================
+     SECTION HEADER
+  ========================================= */
+
+  .section-header {
+
+    display: grid;
+
+    grid-template-columns:
+      auto
+      1fr
+      auto;
+
+    align-items: center;
+
+    gap: 24px;
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 10px;
+
+    text-transform: uppercase;
+
+    letter-spacing: .12em;
+
+  }
+
+
+  .section-id {
+
+    color: var(--stack-muted);
+
+  }
+
+
+  .section-id span {
+
+    color: var(--stack-text);
+
+  }
+
+
+  .section-line {
+
+    height: 1px;
+
+    background: var(--stack-line);
+
+  }
+
+
+  .section-label {
+
+    color: var(--stack-faint);
+
+  }
+
+
+  /* =========================================
+     MAIN
+  ========================================= */
+
+  .stack-main {
+
+    display: grid;
+
+    grid-template-columns:
+      minmax(260px, .65fr)
+      minmax(500px, 1fr);
+
+    gap: 100px;
+
+    margin-top: 120px;
+
+  }
+
+
+  /* =========================================
+     INTRO
+  ========================================= */
+
+  .stack-kicker {
+
+    margin: 0 0 22px;
+
+    color: var(--stack-accent);
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 10px;
+
+    letter-spacing: .12em;
+
+  }
+
+
+  .stack-intro h2 {
+
+    margin: 0;
+
+    max-width: 400px;
+
+    color: var(--stack-text);
+
+    font-size: clamp(3rem, 5vw, 5rem);
+
+    font-weight: 500;
+
+    line-height: .95;
+
+    letter-spacing: -.065em;
+
+  }
+
+
+  .stack-intro h2 span {
+
+    color: transparent;
+
+    -webkit-text-stroke:
+      1px rgba(231,229,223,.6);
+
+  }
+
+
+  .stack-description {
+
+    max-width: 370px;
+
+    margin-top: 40px;
+
+    padding-left: 18px;
+
+    border-left: 1px solid var(--stack-line);
+
+    color: var(--stack-muted);
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 11px;
+
+    line-height: 1.9;
+
+  }
+
+
+  /* =========================================
+     SKILLS
+  ========================================= */
+
+  .skills {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 65px 80px;
+
+  }
+
+
+  .skill-group {
+
+    min-width: 0;
+
+  }
+
+
+  .group-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding-bottom: 14px;
+
+    margin-bottom: 4px;
+
+    border-bottom: 1px solid var(--stack-line);
+
+    color: var(--stack-muted);
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 9px;
+
+    text-transform: uppercase;
+
+    letter-spacing: .12em;
+
+  }
+
+
+  .group-header span:first-child {
+
+    color: var(--stack-faint);
+
+  }
+
+
+  /* =========================================
+     SKILL ITEM
+  ========================================= */
+
+  .skill {
+
+    position: relative;
+
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: 32px 1fr auto;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 15px 0;
+
+    border: 0;
+
+    border-bottom: 1px solid rgba(255,255,255,.035);
+
+    background: none;
+
+    color: var(--stack-muted);
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 11px;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition:
+      color .25s ease,
+      padding .25s ease;
+
+  }
+
+
+  .skill:hover {
+
+    padding-left: 8px;
+
+    color: var(--stack-text);
+
+  }
+
+
+  .skill-number {
+
+    color: var(--stack-faint);
+
+    font-size: 9px;
+
+  }
+
+
+  .skill-name {
+
+    transition:
+      color .25s ease;
+
+  }
+
+
+  .skill:hover .skill-name {
+
+    color: var(--stack-text);
+
+  }
+
+
+  .skill-arrow {
+
+    color: var(--stack-faint);
+
+    transition:
+      transform .25s ease,
+      color .25s ease;
+
+  }
+
+
+  .skill:hover .skill-arrow {
+
+    color: var(--stack-accent);
+
+    transform: translate(2px, -2px);
+
+  }
+
+
+  /* =========================================
+     CODE PANEL
+  ========================================= */
+
+  .code-panel {
+
+    width: min(100%, 620px);
+
+    margin:
+
+      100px
+
+      0
+
+      0
+
+      auto;
+
+    border-top: 1px solid var(--stack-line);
+
+    border-bottom: 1px solid var(--stack-line);
+
+  }
+
+
+  .code-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    padding: 13px 0;
+
+    color: var(--stack-faint);
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 9px;
+
+    text-transform: uppercase;
+
+    letter-spacing: .1em;
+
+  }
+
+
+  #code-content {
+
+    margin: 0;
+
+    padding: 28px 0 34px;
+
+    color: var(--stack-muted);
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 11px;
+
+    line-height: 2;
+
+    white-space: pre-wrap;
+
+  }
+
+
+  .code-keyword {
+
+    color: var(--stack-accent);
+
+  }
+
+
+  .code-function {
+
+    color: var(--stack-text);
+
+  }
+
+
+  .code-comment {
+
+    color: var(--stack-faint);
+
+  }
+
+
+  /* =========================================
+     RESPONSIVE
+  ========================================= */
+
+  @media (max-width: 900px) {
+
+    .stack-section {
+
+      padding: 90px 24px;
+
+    }
+
+
+    .stack-main {
+
+      grid-template-columns: 1fr;
+
+      gap: 70px;
+
+      margin-top: 80px;
+
+    }
+
+
+    .skills {
+
+      gap: 50px;
+
+    }
+
+  }
+
+
+  @media (max-width: 600px) {
+
+    .stack-section {
+
+      padding: 80px 20px;
+
+    }
+
+
+    .section-header {
+
+      grid-template-columns: auto 1fr;
+
+    }
+
+
+    .section-label {
+
+      display: none;
+
+    }
+
+
+    .skills {
+
+      grid-template-columns: 1fr;
+
+      gap: 45px;
+
+    }
+
+
+    .stack-intro h2 {
+
+      font-size: 3.5rem;
+
+    }
+
+
+    .code-panel {
+
+      margin-top: 70px;
+
+    }
+
+  }
+
+</style>
+
+
+<script>
+
+  /*
+   * ========================================
+   * INTERACTIVE CODE
+   * ========================================
+   */
+
+  const codeExamples = {
+
+    python: {
+      file: "python.py",
+      html: `
+<span class="code-keyword">def</span> <span class="code-function">build</span>(problem):
+    understand(problem)
+    design_solution()
+    iterate()
+
+    <span class="code-comment"># keep it simple</span>
+      `
+    },
+
+    sql: {
+      file: "query.sql",
+      html: `
+<span class="code-keyword">SELECT</span>
+    useful_data
+<span class="code-keyword">FROM</span>
+    database
+<span class="code-keyword">WHERE</span>
+    relevant = <span class="code-function">true</span>;
+      `
+    },
+
+    javascript: {
+      file: "script.js",
+      html: `
+<span class="code-keyword">const</span>
+    solution = <span class="code-function">build</span>(problem);
+
+<span class="code-function">console</span>.log(solution);
+      `
+    },
+
+    django: {
+      file: "views.py",
+      html: `
+<span class="code-keyword">def</span> <span class="code-function">detail</span>(request, id):
+    item = get_object_or_404(
+        Item,
+        pk=id
+    )
+
+    <span class="code-keyword">return</span> render(
+        request,
+        <span class="code-comment">"detail.html"</span>
+    )
+      `
+    },
+
+    fastapi: {
+      file: "main.py",
+      html: `
+<span class="code-keyword">@app</span>.get(<span class="code-comment">"/items"</span>)
+<span class="code-keyword">async def</span> <span class="code-function">items</span>():
+    <span class="code-keyword">return</span> database.all()
+      `
+    },
+
+    api: {
+      file: "api.py",
+      html: `
+<span class="code-keyword">GET</span> /api/items
+
+<span class="code-comment">→ validate</span>
+<span class="code-comment">→ process</span>
+<span class="code-comment">→ respond</span>
+      `
+    },
+
+    git: {
+      file: "terminal",
+      html: `
+$ git status
+$ git add .
+$ git commit -m
+  <span class="code-comment">"update"</span>
+      `
+    },
+
+    docker: {
+      file: "Dockerfile",
+      html: `
+<span class="code-keyword">FROM</span> python:3
+
+<span class="code-keyword">COPY</span> . /app
+<span class="code-keyword">RUN</span> pip install -r requirements.txt
+
+<span class="code-keyword">CMD</span> ["python", "main.py"]
+      `
+    },
+
+    linux: {
+      file: "terminal",
+      html: `
+$ pwd
+$ ls
+$ cd project
+$ python main.py
+      `
+    },
+
+    postgresql: {
+      file: "database.sql",
+      html: `
+<span class="code-keyword">CREATE TABLE</span> projects (
+    id SERIAL PRIMARY KEY,
+    name TEXT NOT NULL
+);
+      `
+    },
+
+    pandas: {
+      file: "analysis.py",
+      html: `
+data = pd.read_csv(<span class="code-comment">"data.csv"</span>)
+
+result = (
+    data
+    .groupby(<span class="code-comment">"category"</span>)
+    .mean()
+)
+      `
+    },
+
+    etl: {
+      file: "pipeline.py",
+      html: `
+<span class="code-function">extract</span>()
+<span class="code-function">transform</span>()
+<span class="code-function">load</span>()
+
+<span class="code-comment"># repeat</span>
+      `
+    }
+
+  };
+
+
+  const skills = document.querySelectorAll(".skill");
+
+  const codeContent =
+    document.getElementById("code-content");
+
+  const codeFile =
+    document.getElementById("code-file");
+
+
+  skills.forEach(skill => {
+
+    skill.addEventListener("mouseenter", () => {
+
+      const key =
+        skill.dataset.code;
+
+      const example =
+        codeExamples[key];
+
+      if (!example) return;
+
+      codeFile.textContent =
+        example.file;
+
+      codeContent.innerHTML =
+        example.html;
+
+    });
+
+
+    skill.addEventListener("mouseleave", () => {
+
+      codeFile.textContent =
+        "developer.py";
+
+      codeContent.innerHTML = `
+<span class="code-keyword">def</span> <span class="code-function">build</span>(problem):
+    understand(problem)
+    design_solution()
+    iterate()
+
+    <span class="code-comment"># keep it simple</span>
+      `;
+
+    });
+
+  });
+
+  </script>
+</body>
+</html>

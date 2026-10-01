@@ -47,6 +47,11 @@
     div.parentNode.insertBefore(wrap, div);
     wrap.appendChild(div);
     div.style.maxWidth = 'none';   // le schéma garde sa taille réelle et déborde du conteneur
+    // Le viewer draw.io pose touch-action:none sur son conteneur, ce qui bloque le défilement au doigt
+    var st = document.createElement('style');
+    st.textContent = '#skills-scroll .mxgraph-anim, #skills-scroll .mxgraph-anim * ' +
+      '{ touch-action: pan-x pan-y pinch-zoom !important; }';
+    document.head.appendChild(st);
     div.style.flex = 'none';
   }
   // Rotation du téléphone / changement de taille : on recharge pour choisir le bon mode

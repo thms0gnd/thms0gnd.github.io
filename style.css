@@ -65,7 +65,10 @@ nav{
     letter-spacing:0.01em;
     font-family: var(--manrope);
 }
-.brand span{color:var(--orange);}
+.brand span{
+    color:var(--orange);
+}
+
 .navlinks{
     display:flex; 
     gap:28px; 
@@ -80,7 +83,7 @@ nav{
 }
 .navlinks a:hover, .navlinks a:focus-visible{
     color:var(--paper);
-    border-color:var(--blue);
+    border-color:var(--orange);
 }
 
 /* ==============================================================
@@ -226,9 +229,18 @@ h1.name-last{
 .d3{animation-delay:.75s;} 
 .d4{animation-delay: 1s;}
 
-@keyframes riseIn{to{opacity:1; transform:translateY(0);}}
+@keyframes riseIn{
+    to{
+        opacity:1; 
+        transform:translateY(0);
+    }
+}
 @media (prefers-reduced-motion:reduce){
-.opacity-in{animation:none; opacity:1; transform:none;}
+    .opacity-in{
+        animation:none; 
+        opacity:1; 
+        transform:none;
+    }
 }
 
 /* ==============================================================
@@ -441,26 +453,49 @@ h2{
                         Section EXPERIENCE
 =================================================================*/
 
-.timeline{border-left:2px solid var(--line-soft); margin-left:6px;}
-.timeline.dev{border-left:2px solid var(--blue); margin-left:40px;}
+.timeline{
+    border-left:2px solid var(--line-soft); 
+    margin-left:6px;
+}
+.timeline.dev{
+    border-left:2px solid var(--blue);
+    margin-left:40px;
+}
 .tl-item{
-position:relative;
-padding:0 0 44px 32px;
+    position:relative;
+    padding:0 0 44px 32px;
 }
 .tl-item:last-child{padding-bottom:0;}
 .tl-item::before{
-content:"";
-position:absolute; left:-7px; top:4px;
-width:12px; height:12px;
-background:var(--ink);
-border:2px solid var(--line-soft);
+    content:"";
+    position:absolute; left:-7px; top:4px;
+    width:12px; height:12px;
+    background:var(--ink);
+    border:2px solid var(--line-soft);
 }
 .timeline.dev .tl-item::before{border-color:var(--blue);}
 .timeline.dev .tl-item.alt::before{border-color:var(--orange);}
-.tl-period{font-family:var(--mono); font-size:12.5px; color:#8a8a90; margin-bottom:4px;}
-.tl-role{font-size:18px; font-weight:600;}
-.tl-org{font-size:14px; color:#a9a9ae; margin-bottom:8px;}
-.tl-desc{font-size:14.5px; color:#c7c7cc; max-width:560px; text-align: justify;}
+.tl-period{
+    font-family:var(--mono); 
+    font-size:12.5px; 
+    color:#8a8a90; 
+    margin-bottom:4px;
+}
+.tl-role{
+    font-size:18px; 
+    font-weight:600;
+}
+.tl-org{
+    font-size:14px; 
+    color:#a9a9ae; 
+    margin-bottom:8px;
+}
+.tl-desc{
+    font-size:14.5px; 
+    color:#c7c7cc; 
+    max-width:560px; 
+    text-align: justify;
+}
 
 .list-desc {
     font-size:12.5px;
@@ -480,14 +515,39 @@ border:2px solid var(--line-soft);
 }
 
 /* ---------- PIVOT: le coude du virage de carrière ---------- */
-.pivot{position:relative; height:76px;}
-.pivot .seg-a{position:absolute; left:6px; top:0; width:2px; height:36px; background:var(--line-soft);}
-.pivot .seg-b{position:absolute; left:6px; top:36px; width:34px; height:2px; background:linear-gradient(to right, var(--line-soft), var(--blue));}
-.pivot .seg-c{position:absolute; left:38px; top:36px; width:2px; height:40px; background:var(--blue);}
+.pivot{
+    position:relative; 
+    height:76px;
+}
+.pivot .seg-a{
+    position:absolute; 
+    left:6px; 
+    top:0; 
+    width:2px; 
+    height:36px; 
+    background:var(--line-soft);
+}
+.pivot .seg-b{
+    position:absolute; 
+    left:6px; 
+    top:36px; 
+    width:34px; 
+    height:2px; 
+    background:linear-gradient(to right, var(--line-soft), var(--blue));
+}
+.pivot .seg-c{
+    position:absolute; 
+    left:38px; 
+    top:36px; 
+    width:2px; 
+    height:40px; 
+    background:var(--blue);
+}
+
 .pivot-tag{
-margin-left:56px; padding-top:16px;
-display:inline-flex; flex-direction:column; gap:6px;
-font-family:var(--mono); font-size:12.5px;
+    margin-left:56px; padding-top:16px;
+    display:inline-flex; flex-direction:column; gap:6px;
+    font-family:var(--mono); font-size:12.5px;
 }
 .diff-minus{color:#e2685f;}
 .diff-minus::before{content:"− "; }
@@ -498,47 +558,107 @@ font-family:var(--mono); font-size:12.5px;
                         Section EDUCATiON
 =================================================================*/
 
-.edu-list{display:flex; flex-direction:column;}
-.edu-item{
-display:flex; justify-content:space-between; align-items:baseline;
-padding:18px 0; border-top:1px solid var(--line);
-gap:20px; flex-wrap:wrap;
+.edu-list{
+    display:flex; 
+    flex-direction:column;
 }
-.edu-item:last-child{border-bottom:1px solid var(--line);}
-.edu-title{font-weight:600; font-size:16px;}
-.edu-school{font-size:14px; color:#a9a9ae;}
-.edu-period{font-family:var(--mono); font-size:12.5px; color:#8a8a90; white-space:nowrap;}
-.edu-description{font-size:10px; color:#a9a9ae;}
+.edu-item{
+    display:flex; 
+    justify-content:space-between; 
+    align-items:baseline;
+    padding:18px 0; 
+    border-top:1px solid var(--line);
+    gap:20px; 
+    flex-wrap:wrap;
+}
+.edu-item:last-child{
+    border-bottom:1px solid var(--line);
+}
+.edu-title{
+    font-weight:600; 
+    font-size:16px;
+}
+.edu-school{
+    font-size:14px; 
+    color:#a9a9ae;
+}
+.edu-period{
+    font-family:var(--mono); 
+    font-size:12.5px; 
+    color:#8a8a90; 
+    white-space:nowrap;
+}
+.edu-description{
+    font-size:10px; 
+    color:#a9a9ae;
+}
 
 /* ---------- LANGUAGES ---------- */
-.lang-list{display:flex; flex-direction:column;}
+.lang-list{
+    display:flex; 
+    flex-direction:column;
+}
 .lang-item{
-display:flex; justify-content:space-between; align-items:center;
-padding:18px 0; border-top:1px solid var(--line);
-gap:20px; flex-wrap:wrap;
+    display:flex; 
+    justify-content:space-between; 
+    align-items:center;
+    padding:18px 0; 
+    border-top:1px solid var(--line);
+    gap:20px; 
+    flex-wrap:wrap;
 }
-.lang-item:last-child{border-bottom:1px solid var(--line);}
-.lang-name{font-weight:600; font-size:16px; min-width:140px;}
-.lang-label{font-family:var(--mono); font-size:12.5px; color:#8a8a90; margin-left:14px;}
-.lang-level{display:flex; gap:5px;}
+.lang-item:last-child{
+    border-bottom:1px solid var(--line);
+}
+.lang-name{
+    font-weight:600; 
+    font-size:16px; 
+    min-width:140px;
+}
+.lang-label{
+    font-family:var(--mono); 
+    font-size:12.5px; 
+    color:#8a8a90; 
+    margin-left:14px;
+}
+.lang-level{
+    display:flex; 
+    gap:5px;
+}
 .lang-level span{
-width:16px; height:10px;
-background:var(--line);
+    width:16px; 
+    height:10px;
+    background:var(--line);
 }
-.lang-level span.filled{background:var(--blue);}
-.lang-item.alt .lang-level span.filled{background:var(--orange);}
-.lang-item.full .lang-level span.filled{background:rgba(0,255,0,1);}
+.lang-level span.filled{
+    background:var(--blue);
+}
+.lang-item.alt .lang-level span.filled{
+    background:var(--orange);
+}
+.lang-item.full .lang-level span.filled{
+    background:rgba(0,255,0,1);
+}
 
 /* ==============================================================
                         Section INTERETS
 =================================================================*/
 
 .staff-wrap{
-display: flex;
-align-items: center;
+    display: flex;
+    align-items: center;
 }
-.staff-clef{fill:var(--blue); font-family: Georgia, "Times New Roman", serif; font-size:56px}
-.staff-label{fill:var(--paper); font-family:var(--mono); font-size:15px; margin-left:12px}
+.staff-clef{
+    fill:var(--blue); 
+    font-family: Georgia, "Times New Roman", serif; 
+    font-size:56px
+}
+.staff-label{
+    fill:var(--paper); 
+    font-family:var(--mono); 
+    font-size:15px; 
+    margin-left:12px
+}
 
 /* ==============================================================
                         Section CONTACT
@@ -577,7 +697,7 @@ footer{
 }
 
 @media (max-width:768px){
-.navlinks{display:none;}
-section{padding:64px 0;}
-.hero{min-height:80vh;}
+    .navlinks{display:none;}
+    section{padding:64px 0;}
+    .hero{min-height:80vh;}
 }

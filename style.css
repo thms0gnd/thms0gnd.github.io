@@ -232,12 +232,14 @@ h1.name-last{
     font-family:var(--mono); 
     font-size:14px;
     font-weight: 600;
+    background:var(--muted);
+    color:var(--paper);
     transition:border-color .15s, color .15s, background .15s;
 }
 
 .pdf-button:hover{
     border-color:var(--orange); 
-    background:var(--muted);
+    background:var(--paper);
     color:var(--orange);
 }
 
@@ -560,7 +562,7 @@ h2{
 }
 .pivot .seg-c{
     position:absolute; 
-    left:38px; 
+    left:40px; 
     top:36px; 
     width:2px; 
     height:40px; 
